@@ -3,7 +3,6 @@ import Features from "../components/sections/Features";
 import CloudBased from "../components/sections/Cloudbased";
 import Featuresplit from "../components/sections/FeatureSplit";
 import OutOfTheBox from "../components/sections/OutOfTheBox";
-import CTA from "../components/sections/CTA";
 import FintechSection from "../components/sections/Insight";
 import CaseStudies from "../components/sections/CaseStudies";
 import BottomCTA from "../components/sections/BottmCta";
@@ -15,7 +14,6 @@ export default function Home() {
       <Features />
       <CloudBased />
       <Featuresplit />
-      {/* <CTA /> */}
       <OutOfTheBox />
       <FintechSection />
       <CaseStudies />

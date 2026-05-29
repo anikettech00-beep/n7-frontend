@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://n7-frontend.vercel.app/sitemap.xml
