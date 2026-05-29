@@ -1,26 +1,57 @@
 "use client";
 
-import Link from "next/link";
+import { ANIMATION_VARIANTS, BUTTON_VARIANTS } from "@/src/utils/cn";
+import clsx from "clsx";
+import Image from "next/image";
 
-// High-fidelity custom SVG icons matching the screenshot
 const CoreBankingIcon = () => (
-  <img src="/icons/Core.svg" />
+  <Image
+    src="/icons/Core.svg"
+    alt="core banking"
+    width={42}
+    height={42.7}
+    className="w-auto h-auto"
+  />
 );
 
 const DigitalBankingIcon = () => (
-  <img src="/icons/Digital.svg" />
+  <Image
+    src="/icons/Digital.svg"
+    alt="digital banking"
+    width={42}
+    height={42.7}
+    className="w-auto h-auto"
+  />
 );
 
 const OpenBankingIcon = () => (
-  <img src="/icons/Open.svg" />
+  <Image
+    src="/icons/Open.svg"
+    alt="open banking"
+    width={42}
+    height={42.7}
+    className="w-auto h-auto"
+  />
 );
 
 const LoanOriginationIcon = () => (
-  <img src="/icons/Origination.svg" />
+  <Image
+    src="/icons/Origination.svg"
+    alt="loan origination"
+    width={42}
+    height={42.7}
+    className="w-auto h-auto"
+  />
 );
 
 const LoanManagementIcon = () => (
-  <img src="/icons/Management.svg" />
+  <Image
+    src="/icons/Management.svg"
+    alt="loan management"
+    width={42}
+    height={42.7}
+    className="w-auto h-auto"
+  />
 );
 
 const featuresData = [
@@ -64,46 +95,20 @@ const featuresData = [
 ];
 
 export default function Features() {
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.16, 1, 0.3, 1], // Custom premium ease-out cubic
-      },
-    },
-  };
-
   return (
     <section className="relative pt-24 md:pb-10 overflow-hidden bg-[#000D12]">
-      {/* Background radial glows for premium aesthetic */}
       <div className="pointer-events-none absolute bottom-[17%] right-[0%] z-0 h-139 w-139 rounded-full bg-[linear-gradient(103.43deg,#00B4FD_-1.02%,#003ACE_83.53%)] opacity-20 blur-[200px]" />
 
       <div className="container-custom relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8">
-
-          {/* Left Column */}
           <div className="lg:col-span-5 flex flex-col items-start justify-start h-fit">
-            <h2
-
-              className="text-3xl md:text-4xl lg:text-[38px] leading-tigh text-[#E9F4F9] tracking-tight"
-            >
-              All of our solutions are <br />tailor-made to your needs
+            <h2 className="text-3xl md:text-4xl lg:text-[38px] leading-tight text-[#E9F4F9] tracking-tight">
+              All of our solutions are <br />
+              tailor-made to your needs
             </h2>
 
             <button
-              className="font-button mt-7 md:mt-12 px-14 py-3 rounded-[10px] border border-[#E9F4F9] text-[#E9F4F9] text-[15px]  hover:border-transparent transition-all duration-300 hover:bg-white hover:bg-none hover:text-[#003ACE] uppercase"
+              className={clsx(BUTTON_VARIANTS.secondary, "mt-7 md:mt-12")}
             >
               Request Demo
             </button>
@@ -111,10 +116,7 @@ export default function Features() {
 
           {/* Right Column (Cards Grid) */}
           <div className="lg:col-span-7">
-            <div
-
-              className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16"
-            >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
               {featuresData.map((feature) => (
                 <div
                   key={feature.id}
@@ -139,28 +141,26 @@ export default function Features() {
                   </h3>
 
                   {/* Description */}
-                  <p className="text-base leading-relaxed text-[#E9F4F9]/70 mb-6 pr-6">
+                  <p className="text-base leading-relaxed text-white opacity-70 mb-6 pr-6">
                     {feature.description}
                   </p>
 
                   {/* Link */}
-                  <button
-                    className="font-button group/link relative inline-flex items-center gap-2 pb-1 text-[14px] font-normal uppercase text-[#00B4FD]"
-                  >
+                  <button className={BUTTON_VARIANTS.arrowWithText}>
                     Learn More
-
-                    <span className="absolute bottom-0 left-0 h-px w-8 bg-[#00B4FD] transition-all duration-300 group-hover/link:w-full" />
-
-                    <img
+                    <span className={ANIMATION_VARIANTS.scaleLine} />
+                    <Image
                       src="/icons/rightarrow.svg"
-                      className=""
+                      alt="Arrow"
+                      width={13.57}
+                      height={14.5}
+                      className="w-auto h-auto"
                     />
                   </button>
                 </div>
               ))}
             </div>
           </div>
-
         </div>
       </div>
     </section>

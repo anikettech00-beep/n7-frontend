@@ -2,8 +2,17 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { ChevronDown, Menu, X, ArrowRight, Shield, Cpu, CreditCard, Sparkles, HelpCircle, BookOpen, Layers, MessageSquare, Terminal } from "lucide-react";
+import {
+  Menu,
+  X,
+  ArrowRight,
+  Cpu,
+  BookOpen,
+  Layers,
+  Terminal,
+} from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 interface DropdownItem {
   title: string;
@@ -66,17 +75,23 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex justify-center p-4 md:p-6 transition-all duration-300">
       <nav
-        className={`py-1.75 px-2.5 flex items-center justify-between w-full max-w-179 bg-[#2F2F2FB2] transition-all duration-300 rounded-xl ${isScrolled
+        className={`py-1.75 px-2.5 flex items-center justify-between w-full max-w-179 bg-[#2F2F2FB2] transition-all duration-300 rounded-xl ${
+          isScrolled
             ? "border-zinc-800/80 backdrop-blur-md shadow-2xl"
             : "border-zinc-900/50 backdrop-blur-sm "
-          }`}
+        }`}
         style={{
-          boxShadow: isScrolled ? "0 20px 40px -15px rgba(0, 0, 0, 0.7), inset 0 1px 1px rgba(255, 255, 255, 0.05)" : "none"
+          boxShadow: isScrolled
+            ? "0 20px 40px -15px rgba(0, 0, 0, 0.7), inset 0 1px 1px rgba(255, 255, 255, 0.05)"
+            : "none",
         }}
       >
         {/* Logo */}
         <div className="flex items-center">
-          <Link href="/" className="text-xl font-bold tracking-[0.15em] text-white hover:opacity-90 transition-opacity">
+          <Link
+            href="/"
+            className="text-xl font-bold tracking-[0.15em] text-white hover:opacity-90 transition-opacity"
+          >
             N7
           </Link>
         </div>
@@ -91,7 +106,13 @@ export default function Navbar() {
           >
             <button className="font-button  flex items-center gap-1.5 text-xs  tracking-[0.12em] text-[#E9F4F9] hover:text-white uppercase transition-colors duration-200 py-2 cursor-pointer">
               Solutions
-              <img src="/icons/dropdown-arrow.svg"/>
+              <Image
+                src="/icons/dropdown-arrow.svg"
+                width={16}
+                height={16}
+                alt="arrow"
+                className="w-auto h-auto"
+              />
             </button>
 
             <AnimatePresence>
@@ -101,12 +122,12 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 10, scale: 0.95 }}
                   transition={{ duration: 0.15, ease: "easeOut" }}
-                  className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[280px] bg-zinc-950/95 border border-zinc-800/90 backdrop-blur-xl rounded-2xl p-3.5 shadow-2xl flex flex-col gap-2"
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-70 bg-zinc-950/95 border border-zinc-800/90 backdrop-blur-xl rounded-2xl p-3.5 shadow-2xl flex flex-col gap-2"
                 >
                   {solutionsItems.map((item, idx) => (
                     <button
                       key={idx}
-                      className="group flex items-start gap-3 p-2.5 rounded-xl hover:bg-zinc-900/50 border border-transparent hover:border-zinc-800/40 transition-all duration-200"
+                      className="font-button group flex items-start gap-3 p-2.5 rounded-xl hover:bg-zinc-900/50 border border-transparent hover:border-zinc-800/40 transition-all duration-200"
                     >
                       <div className="flex flex-col gap-0.5">
                         <span className="text-sm font-normal text-[#E9F4F9] group-hover:text-cyan-400 transition-colors">
@@ -128,7 +149,13 @@ export default function Navbar() {
           >
             <button className="font-button flex items-center gap-1.5 text-xs font-normal tracking-[0.12em] text-[#E9F4F9] hover:text-white uppercase transition-colors duration-200 py-2 cursor-pointer">
               Resources
-              <img src="/icons/dropdown-arrow.svg"/>
+              <Image
+                src="/icons/dropdown-arrow.svg"
+                alt="dropdown-arrow"
+                width={14}
+                height={14}
+                className="w-auto h-auto"
+              />
             </button>
 
             <AnimatePresence>
@@ -138,15 +165,15 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 10, scale: 0.95 }}
                   transition={{ duration: 0.15, ease: "easeOut" }}
-                  className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[280px] bg-zinc-950/95 border border-zinc-800/90 backdrop-blur-xl rounded-2xl p-3.5 shadow-2xl flex flex-col gap-2"
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-70 bg-zinc-950/95 border border-zinc-800/90 backdrop-blur-xl rounded-2xl p-3.5 shadow-2xl flex flex-col gap-2"
                 >
                   {resourcesItems.map((item, idx) => (
                     <button
                       key={idx}
-                      className="group flex items-start gap-3 p-2.5 rounded-xl hover:bg-zinc-900/50 border border-transparent hover:border-zinc-800/40 transition-all duration-200"
+                      className="font-button group flex items-start gap-3 p-2.5 rounded-xl hover:bg-zinc-900/50 border border-transparent hover:border-zinc-800/40 transition-all duration-200"
                     >
                       <div className="flex flex-col gap-0.5">
-                        <span className="text-sm font-normal text-[#E9F4F9] group-hover:text-purple-400 transition-colors">
+                        <span className="text-sm font-normal text-[#E9F4F9] group-hover:text-cyan-400 transition-colors">
                           {item.title}
                         </span>
                       </div>
@@ -171,7 +198,7 @@ export default function Navbar() {
           <button
             className="font-button hidden md:inline-flex items-center justify-center border border-[#E9F4F9] text-[#E9F4F9  px-6 py-2 rounded-md text-xs font-normal transition-all duration-300 hover:bg-white hover:bg-none hover:text-[#003ACE] uppercase shadow-inner"
             style={{
-              textShadow: "0 0 10px rgba(255,255,255,0.1)"
+              textShadow: "0 0 10px rgba(255,255,255,0.1)",
             }}
           >
             Request Demo
@@ -183,7 +210,11 @@ export default function Navbar() {
             className="md:hidden p-2 text-zinc-400 hover:text-white rounded-full bg-zinc-900/50 border border-zinc-850 hover:border-zinc-700 transition-all"
             aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+            {isMobileMenuOpen ? (
+              <X className="w-4 h-4" />
+            ) : (
+              <Menu className="w-4 h-4" />
+            )}
           </button>
         </div>
       </nav>
@@ -199,7 +230,9 @@ export default function Navbar() {
             className="absolute top-20 left-4 right-4 bg-zinc-950/95 border border-zinc-850 backdrop-blur-xl rounded-3xl overflow-hidden shadow-2xl p-5 z-40 md:hidden flex flex-col gap-6"
           >
             <div className="flex flex-col gap-4">
-              <span className="text-[10px] font-bold text-zinc-500 tracking-wider uppercase px-2">Solutions</span>
+              <span className="text-[10px] font-bold text-zinc-500 tracking-wider uppercase px-2">
+                Solutions
+              </span>
               <div className="grid grid-cols-1 gap-2">
                 {solutionsItems.map((item, idx) => (
                   <Link
@@ -208,14 +241,18 @@ export default function Navbar() {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="flex items-center gap-3 p-2 rounded-xl hover:bg-zinc-900/50"
                   >
-                    <span className="text-sm font-medium text-zinc-350">{item.title}</span>
+                    <span className="text-sm font-medium text-zinc-350">
+                      {item.title}
+                    </span>
                   </Link>
                 ))}
               </div>
 
               <div className="h-px bg-zinc-900 my-2" />
 
-              <span className="text-[10px] font-bold text-zinc-500 tracking-wider uppercase px-2">Resources</span>
+              <span className="text-[10px] font-bold text-zinc-500 tracking-wider uppercase px-2">
+                Resources
+              </span>
               <div className="grid grid-cols-1 gap-2">
                 {resourcesItems.map((item, idx) => (
                   <Link
@@ -224,7 +261,9 @@ export default function Navbar() {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="flex items-center gap-3 p-2 rounded-xl hover:bg-zinc-900/50"
                   >
-                    <span className="text-sm font-medium text-zinc-350">{item.title}</span>
+                    <span className="text-sm font-medium text-zinc-350">
+                      {item.title}
+                    </span>
                   </Link>
                 ))}
               </div>

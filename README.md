@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# N7 Frontend
 
-## Getting Started
+A modern fintech landing page built with **Next.js 16**, **React 19**, and **Tailwind CSS v4**. The app features a polished dark UI, responsive layout, animated navigation, and content-driven sections for a new banking platform.
 
-First, run the development server:
+## What’s included
+
+- Responsive homepage built with the App Router
+- Animated dropdowns and mobile navigation using `framer-motion`
+- Custom reusable UI components for buttons, sections, and layout
+- Tailwind CSS utility styling with modern gradients, glassmorphism, and dark mode presentation
+- Image optimization with `next/image`
+- Clean, semantic structure split into sections:
+  - `Hero`
+  - `Features`
+  - `CloudBased`
+  - `FeatureSplit`
+  - `OutOfTheBox`
+  - `Insight`
+  - `CaseStudies`
+  - `BottomCTA`
+
+## Project structure
+
+- `src/app/` — root layout and page entry
+- `src/components/layout/` — global navigation and footer
+- `src/components/sections/` — page sections and landing page content
+- `src/components/common/` — shared UI primitives like `Button`
+- `src/utils/` — helper utilities
+
+## Technology stack
+
+- `next` 16.2.6
+- `react` 19.2.4
+- `typescript`
+- `tailwindcss` v4
+- `framer-motion`
+- `lucide-react`
+- `react-intersection-observer`
+- `clsx`
+
+## Getting started
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000` in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build and production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create an optimized production build:
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+Start the production server:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Code quality
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Lint the project with:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run lint
+```
+
+## Customize
+
+- Update the homepage sections in `src/app/page.tsx`
+- Change global fonts and metadata in `src/app/layout.tsx`
+- Adjust navigation links and footer content in `src/components/layout/Navbar.tsx` and `src/components/layout/Footer.tsx`
+
+## Notes
+
+This repo is a clean landing page shell for a fintech brand called `N7`. It is optimized for modern frontend development and easy iteration on layout, copy, and section structure.
